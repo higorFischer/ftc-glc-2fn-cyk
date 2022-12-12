@@ -1,3 +1,4 @@
+import { CNF } from "../models/CNF";
 import { GLC } from "../models/GLC";
 
 function buildTable(n: number): string[][][] {
@@ -11,10 +12,9 @@ function buildTable(n: number): string[][][] {
 	return table;
 }
 
-export function CYK(word: string) {
+export function CYK(glc: CNF, word: string) {
 	var wordSize = word.length;
 	var recognitionTable = buildTable(wordSize);
-	var glc = new GLC();
 
 	for (var i = 0; i < wordSize; i++) {
 		for (var variables in glc.variables) {
@@ -52,9 +52,9 @@ export function CYK(word: string) {
 	}
 
 	if (recognitionTable[0][wordSize - 1].indexOf(glc.initialState) >= 0) {
-		console.log("recognize");
+		console.log("CYKM:recognize");
 		return true;
 	}
-	console.log("DONT recognize");
+	console.log("CYKM: DONT recognize");
 	return false;
 }

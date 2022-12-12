@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CYK = void 0;
-const GLC_1 = require("../models/GLC");
 function buildTable(n) {
     const table = [];
     for (var i = 0; i < n; i++) {
@@ -12,10 +11,9 @@ function buildTable(n) {
     }
     return table;
 }
-function CYK(word) {
+function CYK(glc, word) {
     var wordSize = word.length;
     var recognitionTable = buildTable(wordSize);
-    var glc = new GLC_1.GLC();
     for (var i = 0; i < wordSize; i++) {
         for (var variables in glc.variables) {
             for (var key of glc.variables[variables]) {
@@ -47,10 +45,10 @@ function CYK(word) {
         }
     }
     if (recognitionTable[0][wordSize - 1].indexOf(glc.initialState) >= 0) {
-        console.log("recognize");
+        console.log("CYKM:recognize");
         return true;
     }
-    console.log("DONT recognize");
+    console.log("CYKM: DONT recognize");
     return false;
 }
 exports.CYK = CYK;

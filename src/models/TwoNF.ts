@@ -7,6 +7,8 @@ export class TwoNF extends GLC {
 	}
 
 	private fromGLC(glc: GLC) {
-		console.log(glc);
+		var newGLC = this.instantiateNew(glc, false);
+		this.BIN(newGLC);
+		Object.assign(this, newGLC);
 	}
 }

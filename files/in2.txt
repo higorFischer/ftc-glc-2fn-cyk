@@ -1,0 +1,14 @@
+E
+a,b,0,1,(,),*,+
+RULES
+E:T|E+T
+T:F|T*F
+F:aI|bI|(E)
+I:0I|1I|λ
+RULES
+WORDS
+(a0+b)*a
+WORDS
+TIMES
+2
+TIMES
