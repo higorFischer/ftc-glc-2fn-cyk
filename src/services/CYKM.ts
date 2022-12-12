@@ -88,8 +88,8 @@ export function CYKM(glc: TwoNF, word: string) {
 
 			table[i][j] = reachable(unitRelation, auxTable[i][j]);
 		}
+		if (table[0][word.length - 1].includes(glc.initialState))
+			console.log("CYKM: recognize");
+		else console.log("CYKM: dont recognize");
 	}
-	if (table[0][word.length - 1].includes(glc.initialState))
-		console.log("recognize");
-	else console.log("dont recognize");
 }

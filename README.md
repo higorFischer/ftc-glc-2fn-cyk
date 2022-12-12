@@ -55,4 +55,4 @@ Onde entre as RULES ficam as regras no formato:
 <variable>:<rule>|<rule>
 
 Entre as WORDS ficam as palavras a serem testadas
-e entre os TIMES ficam a quantidade de vezes que se quer testar os items
+e entre os TIMES ficam a quantidade de vezes que se quer testar os items.
